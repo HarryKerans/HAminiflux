@@ -7,5 +7,3 @@ COPY --from=miniflux /usr/bin/miniflux /usr/bin/miniflux
 
 COPY run.sh /
 RUN chmod +x /run.sh
-
-CMD ["/run.sh"]
