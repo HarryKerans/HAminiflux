@@ -1,0 +1,38 @@
+name: Miniflux
+description: Miniflux RSS feed reader
+version: 1.0.0
+slug: miniflux
+url: https://miniflux.app
+arch:
+  - amd64
+  - aarch64
+ports:
+  8012/tcp: 8012
+ports_description:
+  8012/tcp: Miniflux web UI
+options:
+  DATABASE_HOST: 77e2a68a-timescaledb
+  DATABASE_PORT: 5432
+  DATABASE_USER: miniflux
+  DATABASE_PASSWORD: ""
+  DATABASE_NAME: miniflux
+  DATABASE_SSLMODE: disable
+  RUN_MIGRATIONS: true
+  CREATE_ADMIN: true
+  ADMIN_USERNAME: admin
+  ADMIN_PASSWORD: ""
+schema:
+  DATABASE_HOST: str
+  DATABASE_PORT: port
+  DATABASE_USER: str
+  DATABASE_PASSWORD: password
+  DATABASE_NAME: str
+  DATABASE_SSLMODE: "list(disable|require|verify-ca|verify-full)"
+  RUN_MIGRATIONS: bool
+  CREATE_ADMIN: bool
+  ADMIN_USERNAME: str
+  ADMIN_PASSWORD: password
+ingress: true
+ingress_port: 8012
+panel_icon: mdi:rss
+panel_title: Miniflux
