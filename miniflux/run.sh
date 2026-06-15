@@ -26,10 +26,7 @@ if bashio::var.true "${CREATE_ADMIN}"; then
     export ADMIN_PASSWORD="${ADMIN_PASS}"
 fi
 
-# Support ingress
-if bashio::var.has_value "$(bashio::addon.ingress_entry)"; then
-    export BASE_URL="$(bashio::addon.ingress_entry)"
-fi
+# Ingress is handled by HA proxy — no BASE_URL needed for direct access
 
 export LISTEN_ADDR="0.0.0.0:8012"
 
